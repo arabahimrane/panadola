@@ -1,0 +1,30 @@
+.orderBox .input-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: white;
+    width: 5rem;
+    height: 2.5rem;
+
+}
+
+.input-wrapper input {
+    padding-right: 30px;
+    height: 2.5rem;
+    border: none
+}
+
+.input-wrapper span {
+    background-color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    align-content: center;
+
+}
+
+/* .input-wrapper i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+} */

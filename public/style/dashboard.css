@@ -1,0 +1,562 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #ffffff;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+    --avtive-text-colot: #F6F5FF;
+    --white: #ffffff;
+    --cardHover-color: #0098fd;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+
+/*======main ========*/
+main {
+    transition: margin-left .5s;
+    padding: 88px;
+}
+
+/* ===== Sidebar ===== */
+@media (min-width: 992px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        padding: 10px 14px;
+        background: var(--sidebar-color);
+        transition: var(--tran-05);
+        z-index: 100;
+    }
+
+    .sidebar.close {
+        width: 88px;
+    }
+}
+
+/* ===== Reusable code - Here ===== */
+.sidebar li {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon {
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon {
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.sidebar .text,
+.sidebar .icon {
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar .text {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text {
+    opacity: 0;
+}
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar header .logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .image-text .profession {
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img {
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--cardHover-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+body.dark .sidebar header .toggle {
+    color: var(--text-color);
+}
+
+.sidebar.close .toggle {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar .menu {
+    margin-top: 40px;
+}
+
+.sidebar li.search-box {
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar li.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+}
+
+.sidebar li a {
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover {
+    background-color: var(--cardHover-color);
+    color: var(--sidebar-color);
+}
+
+body .sidebar li a:hover .icon,
+body .sidebar li a:hover .text {
+    background-color: var(--cardHover-color);
+    color: var(--sidebar-color);
+}
+
+
+.bottom-content .sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar {
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.sidebar .menu-bar .mode {
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
+}
+
+.menu-bar .mode .sun-moon {
+    height: 50px;
+    width: 60px;
+}
+
+.mode .sun-moon i {
+    position: absolute;
+}
+
+.mode .sun-moon i.sun {
+    opacity: 0;
+}
+
+body.dark .mode .sun-moon i.sun {
+    opacity: 1;
+}
+
+body.dark .mode .sun-moon i.moon {
+    opacity: 0;
+}
+
+.menu-bar .bottom-content .toggle-switch {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+    transition: var(--tran-05);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before {
+    left: 20px;
+}
+
+
+/* ============ dark body =================== */
+body.dark .text {
+    color: var(--toggle-color)
+}
+
+body.dark .cardBox .card {
+    background-color: var(--primary-color);
+}
+
+body.dark .cardBox .card:hover {
+    background-color: var(--cardHover-color);
+    color: var(--white);
+}
+
+
+/* ====================card============================= */
+.cardBox {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    padding-left: 10%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    min-width: 200px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: auto;
+    color: var(--text-color);
+}
+
+.cardBox .card .cardName {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.cardBox .card:hover {
+    background: var(--cardHover-color);
+    color: var(--body-color);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: var(--white);
+}
+
+/*==================orderlistAndCahart===============================*/
+.orderlist {
+    margin: auto;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    height: auto;
+    justify-content: center;
+    padding-left: 9%;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderlist h2 {
+    font-size: auto;
+    color: var(--text-color);
+}
+
+/*==========================tableaux order===========================*/
+.orderlist table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orderlist table th,
+.orderlist table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.orderlist table thead tr th {
+    background-color: var(--white);
+    color: black;
+}
+
+.orderlist table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+
+}
+
+.orderlist table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.orderlist table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.orderlist table tbody {
+    background-color: var(--sidebar-color);
+}
+
+.orderlist table tbody tr {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--primary-color-light);
+}
+
+.orderlist table tbody tr:hover {
+    background-color: var(--cardHover-color);
+    cursor: pointer;
+    color: var(--white);
+}
+
+.orderlist table tbody tr:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: none;
+}
+
+body.dark .orderlist table tbody tr:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: var(--white);
+}
+
+body.dark .orderlist table thead tr th {
+    background-color: #3a3b3c;
+    color: var(--white);
+    font-size: auto;
+}
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 450px;
+        /* Hauteur souhaitée de la barre latérale */
+        padding: 10px 14px;
+        background: var(--sidebar-color);
+        transition: var(--tran-05);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        /* Utilisation de flexbox pour aligner le contenu horizontalement */
+        align-items: center;
+        /* Alignement vertical du contenu au centre */
+    }
+
+    .sidebar header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .sidebar header .image-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .sidebar header .toggle {
+        margin-right: 20px;
+        transform: translateY(-50%) rotate(180deg);
+        height: 50px;
+        width: 50px;
+        color: var(--sidebar-color);
+        /* border-radius: 50%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        cursor: pointer;
+        transition: var(--tran-05);
+    }
+
+    .sidebar.close {
+        height: 80px;
+    }
+
+    .sidebar.close .logo-text {
+        opacity: 1;
+    }
+
+    .sidebar.open .toggle {
+        transform: translateY(-50%) rotate(-90deg);
+    }
+
+    main {
+        width: 100%;
+        padding: 0%;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+
+    .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0%;
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+
+    main {
+        width: 100%;
+        padding: 0;
+        padding-top: 8rem;
+        padding-bottom: 8rem; 
+    }
+
+}

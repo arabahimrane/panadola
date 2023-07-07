@@ -1,0 +1,47 @@
+<div class="chart">
+    <h2>
+        Earning
+    </h2>
+    <canvas class="canvas" id="earningChart"></canvas>
+</div>
+
+
+<script>
+    function getDateLabels(count) {
+        const labels = [];
+        const currentDate = new Date();
+        for (let i = 0; i < count; i++) {
+            const month = currentDate.toLocaleString('default', { month: 'long' });
+            const day = currentDate.getDate();
+            const label = `${month} ${day}`; // Combine month and day
+            labels.unshift(label); // Add the label to the beginning of the array
+            currentDate.setDate(currentDate.getDate() - 1); // Move to the previous day
+        }
+        return labels;
+    }
+
+    const earningChart = document.getElementById('earningChart');
+    new Chart(earningChart, {
+        type: 'line',
+        data: {
+            labels: getDateLabels(7),
+            datasets: [{
+                label: '<%- data.earning.name %>',
+                data: [12, 9, 8, 1, 6, 5, 2],
+                fill: false,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+
+
+</script>

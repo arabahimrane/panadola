@@ -1,0 +1,36 @@
+<div class="chart">
+    <h2>
+        Traffic
+    </h2>
+    <canvas class="doughnut" id="doughnutTaraffic"></canvas>
+</div>
+
+
+<script>
+    const doughnutTaraffic = document.getElementById('doughnutTaraffic');
+
+    new Chart(doughnutTaraffic, {
+        type: 'doughnut',
+        data: {
+            labels: ['<%- data.traffic.donne.mobile.name %>', '<%- data.traffic.donne.descktop.name %>', '<%- data.traffic.donne.tablet.name %>'],
+            datasets: [{
+                label: 'Traffic',
+                data: ['<%- data.traffic.donne.mobile.value  %>', '<%- data.traffic.donne.descktop.value  %>', '<%- data.traffic.donne.tablet.value %>'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Traffic',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

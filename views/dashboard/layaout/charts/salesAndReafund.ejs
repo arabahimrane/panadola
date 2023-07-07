@@ -1,0 +1,36 @@
+<div class="chart">
+    <h2>
+        Orders
+    </h2>
+    <canvas class="doughnut" id="doughnutConfirmSalesAndRefunds"></canvas>
+</div>
+
+
+<script>
+    const doughnutConfirmSalesAndRefunds = document.getElementById('doughnutConfirmSalesAndRefunds');
+
+    new Chart(doughnutConfirmSalesAndRefunds, {
+        type: 'doughnut',
+        data: {
+            labels: ['<%- data.confirmSales.name %>', '<%- data.refund.name%>'],
+            datasets: [{
+                label: 'sales and Reafund',
+                data: ['<%- data.confirmSales.value %>', '<%- data.refund.value %>'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: '<%- data.confirmSales.name %> and <%- data.refund.name %>',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

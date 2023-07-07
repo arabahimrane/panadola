@@ -1,0 +1,109 @@
+<% function formatNumber(num) {
+    if(num >= 1000000000){
+        return (num / 1000000000).toFixed(1) + 'B';
+    }
+    else if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'k';
+    } else {
+        return num;
+    }
+} %>
+
+<% function calculatePercentage(orders, visits) {
+    if (visits === 0) {
+        return 0;
+    }
+    
+    var percentage = (orders / visits) * 100;
+    return percentage.toFixed(0) + '%';
+} %>
+
+<!-- orders -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= formatNumber(data.orders.value) %></div>
+        <div class="cardName"><%-data.orders.name %></div>
+    </div>
+
+    <span class="material-symbols-outlined iconBx">
+        box
+    </span>
+</div>
+
+<!-- shipping -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= formatNumber(data.shipping.value) %></div>
+        <div class="cardName"><%-data.shipping.name %></div>
+    </div>
+    <span class="material-symbols-outlined iconBx">
+        local_shipping
+    </span>
+</div>
+
+<!-- confirm sales -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= formatNumber(data.confirmSales.value) %></div>
+        <div class="cardName"><%- data.confirmSales.name %></div>
+    </div>
+
+    <span class="material-symbols-outlined iconBx">
+        monitoring
+    </span>
+</div>
+<!-- refund -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= formatNumber(data.refund.value) %></div>
+        <div class="cardName"><%- data.refund.name %></div>
+    </div>
+    <span class="material-symbols-outlined iconBx">
+        currency_exchange
+    </span>
+
+</div>
+<!-- visits -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= data.visits.value %></div>
+        <div class="cardName"><%- data.visits.name %></div>
+    </div>
+
+    <span class="material-symbols-outlined iconBx">
+        visibility
+    </span>
+</div>
+<!-- Conversion rate -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= calculatePercentage(data.orders.value, data.visits.value) %></div>
+        <div class="cardName">Conversion rate</div>
+    </div>
+
+    <span class="material-symbols-outlined iconBx">
+        heap_snapshot_thumbnail
+    </span>
+</div>
+<!-- earning -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= formatNumber(data.earning.value) %>$</div>
+        <div class="cardName"><%- data.earning.name %></div>
+    </div>
+    <span class="material-symbols-outlined iconBx">
+        payments
+    </span>
+</div>
+<!-- Customers -->
+<div class="card">
+    <div>
+        <div class="numbers"><%= formatNumber(data.customers.value) %></div>
+        <div class="cardName"><%- data.customers.name %></div>
+    </div>
+    <span class="material-symbols-outlined iconBx">
+        groups
+    </span>
+</div>
