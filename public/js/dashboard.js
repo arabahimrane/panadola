@@ -143,7 +143,4 @@ window.addEventListener('load', function () {
             setCookie('themeMode', 'light', 10);
         }
     });
-
-
-
 });
