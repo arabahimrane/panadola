@@ -16,7 +16,7 @@
     background: var(--white);
     padding: 1.3rem;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.137);
-    border-radius: 20px;
+    border-radius: var(--radius);
     width: 20rem;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .chartAnalytics *:not(:first-child) {
-   margin-top: 3rem;
+    margin-top: 3rem;
 }
 
 /* Media query for smaller screens */

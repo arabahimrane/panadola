@@ -1,0 +1,55 @@
+<h2>Create product</h2>
+<div class="addProduct">
+    <div class="productInfo">
+        <div class="input_container">
+            <h5>Product title</h5>
+            <input class='productTitle' type="text" placeholder="Product title">
+        </div>
+
+        <div class="editorContainer">
+            <h5>Product description</h5>
+            <div id="editor"></div>
+        </div>
+
+        <div class="input_container">
+            <h5>Product title</h5>
+            <input class='productTitle' type="text" placeholder="Product title">
+        </div>
+    </div>
+    <div class="productPublie">
+        <div class="publish">
+            <div class="publishTitle">
+                <h5>Publish</h5>
+            </div>
+            <div class="publishStatus">
+                <div class="status">
+                    <label for="status">Status</label>
+                    <select class="input-wrapper" name="status">
+                        <option value="publish">Publish</option>
+                        <option value="draft">Draft</option>
+                        <option value="scheduled">Scheduled</option>
+                    </select>
+                </div>
+                <div class="status">
+                    <h5></h5>
+                    <label for="visibility">Visibility</label>
+
+                    <select class="input-wrapper" name="visibility">
+                        <option value="public">Public</option>
+                        <option value="hidden">Hidden</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="publish">
+            <div class="publishTitle">
+                Publish Schedule
+            </div>
+            <div class="status">
+                <label for="datePicker">Publish Date & Time</label>
+                <input class="input-wrapper" type="text" id="datetimePicker" placeholder="Select date and time">
+            </div>
+        </div>
+
+    </div>
+</div>

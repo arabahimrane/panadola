@@ -5,7 +5,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
+        <%- include(linkBody) %>
+
+        <% if (typeof link !== 'undefined') { %>
         <%- include(link) %>
+
+        <% } %>
+
+        <%- include(scriptBody) %>
+        <% if (typeof script !== 'undefined') { %>
+          <%- include(script) %>
+        <% } %>
+
+
     </head>
 
     <body class="dark">
@@ -16,7 +28,6 @@
             <%- include(components) %>
         </main>
 
-        <%- include(script) %>
     </body>
 
 </html>
