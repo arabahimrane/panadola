@@ -10,24 +10,60 @@ main h2 {
     justify-content: space-between;
 }
 
-.addProduct .productInfo {
+.addProduct .principaleInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 70%;
+
+}
+
+.principaleInfo .productInfo {
     border-radius: var(--radius);
-    padding: 1.5rem;
-    justify-content: space-between;
     background-color: var(--primary-color);
     border: 1px solid var(--placeholder-color);
-    width: 70%;
-}
-
-.addProduct .productInfo .input_container {
     width: 100%;
 }
 
-.addProduct .productInfo .input_container .productTitle {
+.productInfo .header {
+    width: 100%;
+    height: 3rem;
+    padding: 1rem;
+    margin: auto;
+    border-bottom: 1px solid var(--placeholder-color);
+}
+
+.productInfo .body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.body .variation_input_container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1;
+}
+
+.variation_input_container span {
+    height: auto;
+    cursor: pointer;
+}
+
+
+.variation_input_container .input_container {
     width: 100%;
 }
 
-.addProduct .productInfo .editorContainer {
+.variation_input_container .input_container .productTitle {
+    width: 100%;
+}
+
+
+
+.body .editorContainer {
     width: 100%;
     height: 20rem;
     display: flex;
@@ -53,10 +89,26 @@ main h2 {
     width: 25%;
     height: 50%;
     margin-top: 2%;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
+
+.body .status {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    width: 100%;
+}
+
+.body .status .input-wrapper {
+    width: 70%;
+    margin: 0;
+}
+
+
+
+/*===================================================*/
 
 .productPublie .publish {
     border-radius: var(--radius);
@@ -105,14 +157,115 @@ main h2 {
     padding: 0.5rem;
 }
 
+/*-----------------------drop zone--------------*/
+.body .dropzone {
+    border: 2px dashed #ccc;
+    width: 100%;
+    border-radius: 5px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 30px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.dropzone .dz-message span {
+    font-size: 4rem;
+}
+
+.dropzone .dz-preview.dz-image-preview {
+    background-color: transparent;
+}
+
+/*---------------------geneale Information--------------------------*/
+
+.body .generalInfo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.generalInfo .input_container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.generalInfo .input_container input {
+    width: 100%;
+    padding-left: 2%;
+}
+
+.body .inputVariation {
+    width: 16rem;
+}
+
+.body .variation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
+}
+
+.body.variation button {
+    height: 2rem;
+}
+
+.body .variation .input_container {
+    width: 45%;
+}
+
+.body .variation .input_container input {
+    width: 100%;
+}
+
+.body .variation .variationList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+    max-width: 45%;
+    max-height: 3rem;
+    overflow: auto;
+    gap: 0.5rem;
+}
+
+.productInfo .footer {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+/*------------------------------------------------------------------*/
 @media (max-width: 992px) {
+    main h2 {
+        margin-left: 3rem;
+    }
+
     .addProduct {
         margin: auto;
         justify-content: start;
+        gap: 2rem;
     }
 
-    .addProduct .productInfo {
+    .addProduct .principaleInfo {
         width: 80%;
         margin: auto;
+    }
+
+    .addProduct .productPublie {
+        margin: auto;
+        width: 80%;
+    }
+
+    .generalInfo .input_container {
+        width: 100%;
+    }
+
+    .body .inputVariation {
+        width: 45%;
     }
 }

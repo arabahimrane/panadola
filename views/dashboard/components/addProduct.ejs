@@ -1,24 +1,101 @@
 <h2>Create product</h2>
 <div class="addProduct">
-    <div class="productInfo">
-        <div class="input_container">
-            <h5>Product title</h5>
-            <input class='productTitle' type="text" placeholder="Product title">
-        </div>
+    <div class="principaleInfo">
+        <div class="productInfo">
+            <div class="header">
+                <h4>Product Information</h4>
+            </div>
+            <div class="body">
+                <div class="input_container">
+                    <label for="productTitle">Product title</label>
+                    <input class='productTitle' name="productTitle" type="text" placeholder="Product title">
+                </div>
 
-        <div class="editorContainer">
-            <h5>Product description</h5>
-            <div id="editor"></div>
-        </div>
+                <div class="editorContainer">
+                    <label for="editor">Product description</label>
+                    <div id="editor"></div>
+                </div>
 
-        <div class="input_container">
-            <h5>Product title</h5>
-            <input class='productTitle' type="text" placeholder="Product title">
+                <div class="status">
+                    <label for="categorie">Categorie</label>
+                    <select class="input-wrapper" name="categorie">
+                        <option value="publish">Sport</option>
+                    </select>
+                    <a href="/dashboard/createcategorie" target="_blank" class="button">Add new</a>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="productInfo">
+            <div class="header">
+                <h4>Product Gallery</h4>
+            </div>
+            <div class="body">
+                <div id="myDropzone" class="dropzone">
+                    <div class="dz-message">
+                        <span class="material-symbols-outlined">
+                            cloud_upload
+                        </span>
+
+                        <h5>Drop files here or click to upload.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="productInfo">
+            <div class="header">
+                <h4>Generate Information</h4>
+            </div>
+            <div class="body">
+                <div class="generalInfo">
+                    <div class="input_container">
+                        <label for="manifacturName">Manifactur name</label>
+                        <input type="text" name="manifacturName">
+                    </div>
+                    <div class="input_container">
+                        <label for="manifacturBrand">Manifactur Brand</label>
+                        <input type="text" name="manifacturBrand">
+                    </div>
+                    <div class="input_container inputVariation">
+                        <label for="stock">Stock</label>
+                        <input type="text" name="stock">
+                    </div>
+                    <div class="input_container inputVariation">
+                        <label for="price">Price (<%= data.device %>)</label>
+                        <input type="text" name="price">
+                    </div>
+                    <div class="input_container inputVariation">
+                        <label for="discount">Discount (%)</label>
+                        <input type="text" name="discount">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="productInfo">
+            <div class="header">
+                <h4>Variation</h4>
+            </div>
+            <div class="body">
+                <div class="variation" >
+                    <div class="input_container">
+                        <label for="createVariation">New variation (Colors, Size, type, ...)</label>
+                        <input type="text"  id="createVariation" name="createVariation" class="variableInput">
+                    </div>
+                </div>
+                <div class="newVariation" id="newVariation"></div>
+
+            </div>
+            <div class="footer">
+                <button class="btn btn-outline-primary" id="generateVariation">Generate</button>
+            </div>
         </div>
     </div>
     <div class="productPublie">
         <div class="publish">
             <div class="publishTitle">
+
                 <h5>Publish</h5>
             </div>
             <div class="publishStatus">
@@ -31,7 +108,6 @@
                     </select>
                 </div>
                 <div class="status">
-                    <h5></h5>
                     <label for="visibility">Visibility</label>
 
                     <select class="input-wrapper" name="visibility">
@@ -43,7 +119,9 @@
         </div>
         <div class="publish">
             <div class="publishTitle">
-                Publish Schedule
+                <h5>
+                    Publish Schedule
+                </h5>
             </div>
             <div class="status">
                 <label for="datePicker">Publish Date & Time</label>

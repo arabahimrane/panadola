@@ -162,9 +162,10 @@ router.get('/addProduct', (req, res) => {
         scriptBody: '../layaout/script', linkBody: '../layaout/link',
         script: '../layaout/script/addProduct.script.ejs', link: '../layaout/link/addProduct.link.ejs',
         components: 'components/addProduct',
-        data: [{
+        data: {
             host: 'https://mysnack.com/products/',
-        }]
+            device: 'usd'
+        },
 
     });
 });
