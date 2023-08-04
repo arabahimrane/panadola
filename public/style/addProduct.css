@@ -167,12 +167,12 @@ main h2 {
     background-position: center;
     text-align: center;
     padding: 30px;
-    font-size: 16px;
+    font-size: var(--large-title);
     color: var(--text-color);
 }
 
 .dropzone .dz-message span {
-    font-size: 4rem;
+    font-size: var(--p);
 }
 
 .dropzone .dz-preview.dz-image-preview {

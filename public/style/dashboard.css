@@ -24,8 +24,10 @@
     --chip-hover: #42b0fa;
     --placeholder-color: #707070;
     /*======= Font size ===========*/
-    --smull-title: 1rem;
-    --mediom-title: 1.5rem;
+    --p: 0.2;
+    --smull-title: 0.5rem;
+    --mediom-title: 1rem;
+    --large-title : 1.5rem;
     /*======= Radius======*/
     --radius: 0.3rem;
     /* ====== Transition ====== */
