@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const { expiredJwtTest } = require('../config/jwt.config');
-const { singup, signin, getpassword } = require('../controller/auth.controller');
+const { testSession, singup, signin, logout, getpassword } = require('../controller/auth.controller');
+const { uploadImgProduct, getStore } = require('../controller/dashboard.controller');
+router.get('/', testSession, getStore, (req, res) => {
 
-router.get('/', (req, res) => {
+
     res.render('dashboard/body', {
         title: 'Dashboard', sidebar: 'layaout/sidebar',
         scriptBody: '../layaout/script', linkBody: '../layaout/link',
@@ -70,7 +71,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/analytics', (req, res) => {
+router.get('/analytics', testSession, (req, res) => {
     res.render('dashboard/body', {
         title: 'Analytics', sidebar: 'layaout/sidebar',
         scriptBody: '../layaout/script', linkBody: '../layaout/link',
@@ -95,7 +96,7 @@ router.get('/analytics', (req, res) => {
 });
 
 
-router.get('/orders', (req, res) => {
+router.get('/orders', testSession, (req, res) => {
     res.render('dashboard/body', {
         title: 'Orders', sidebar: 'layaout/sidebar',
         scriptBody: '../layaout/script', linkBody: '../layaout/link',
@@ -156,7 +157,7 @@ router.get('/orders', (req, res) => {
     });
 });
 
-router.get('/addProduct', (req, res) => {
+router.get('/addProduct', testSession, (req, res) => {
     res.render('dashboard/body', {
         title: 'Add Product', sidebar: 'layaout/sidebar',
         scriptBody: '../layaout/script', linkBody: '../layaout/link',
@@ -180,6 +181,8 @@ router.get('/signin', (req, res) => {
     res.status(errorMessage ? 401 : 200).render('login/login', { title: 'Dashboard | login', script: '../layaout/script', formPath: 'signinForm', errorMessage: errorMessage });
 })
 
+router.get('/logout', (req, res) => logout(res))
+
 router.get('/getpassword', (req, res) => {
     res.render('login/login', { title: 'Dashboard | forgot password', script: '../layaout/script', formPath: 'getpasswordForm' });
 })
@@ -189,6 +192,8 @@ router.get('/getpassword', (req, res) => {
 router.post('/singup', singup);
 router.post('/signin', signin);
 router.post('/getpassword', getpassword);
+
+router.post('/uploadProductImg', testSession, uploadImgProduct);
 
 
 

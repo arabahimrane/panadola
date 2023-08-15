@@ -23,11 +23,22 @@
     --chip-color: #0098fd;
     --chip-hover: #42b0fa;
     --placeholder-color: #707070;
+    /*====== icon size ========== */
+
+    --smull-icon: 1.8rem;
+    --mediom-icon: 2.3rem;
+    --large-icon: 2.8rem;
+
     /*======= Font size ===========*/
-    --p: 0.2;
-    --smull-title: 0.5rem;
-    --mediom-title: 1rem;
-    --large-title : 1.5rem;
+
+    --smull-p: 0.8rem;
+    --mediom-p: 1.3rem;
+    --large-p: 1.8rem;
+
+    /* ======= title Font size ======= */
+    --smull-title: 1rem;
+    --mediom-title: 1.5rem;
+    --large-title: 2rem;
     /*======= Radius======*/
     --radius: 0.3rem;
     /* ====== Transition ====== */
@@ -141,7 +152,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: var(--smull-icon);
 }
 
 .sidebar .text,
@@ -151,7 +162,7 @@ main {
 }
 
 .sidebar .text {
-    font-size: 17px;
+    font-size: var(--smull-p);
     font-weight: 500;
     white-space: nowrap;
     opacity: 1;
@@ -177,12 +188,12 @@ main {
 
 header .image-text .name {
     margin-top: 2px;
-    font-size: 18px;
+    font-size: var(--mediom-title);
     font-weight: 600;
 }
 
 header .image-text .profession {
-    font-size: 16px;
+    font-size: var(--smull-title);
     margin-top: -2px;
     display: block;
 }
@@ -211,7 +222,7 @@ header .image-text .profession {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: var(--smull-icon);
     cursor: pointer;
     transition: var(--tran-05);
 }
@@ -243,7 +254,7 @@ body.dark .sidebar header .toggle {
     background-color: var(--primary-color-light);
     color: var(--text-color);
     border-radius: var(--radius);
-    font-size: 17px;
+    font-size: var(--smull-p);
     font-weight: 500;
     transition: var(--tran-05);
 }
@@ -426,12 +437,12 @@ a:hover {
 
 .cardBox .card .cardName {
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: var(--mediom-title);
     margin-top: 5px;
 }
 
 .cardBox .card .iconBx {
-    font-size: 2.5rem;
+    font-size: var(--mediom-icon);
     color: var(--text-color);
 }
 
@@ -457,7 +468,7 @@ a:hover {
 }
 
 .orderlist h2 {
-    font-size: auto;
+    font-size: var(--mediom-title);
     color: var(--text-color);
 }
 
@@ -472,6 +483,7 @@ a:hover {
 .orderlist table td {
     padding: 10px;
     text-align: left;
+    font-size: var(--smull-p);
 }
 
 .orderlist table thead tr th {
@@ -524,7 +536,7 @@ body.dark .orderlist table tbody tr:hover {
 body.dark .orderlist table thead tr th {
     background-color: #3a3b3c;
     color: var(--white);
-    font-size: auto;
+    font-size: var(--mediom-title);
 }
 
 /*======================= Generale===================================*/
@@ -657,7 +669,7 @@ select.input-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: var(--mediom-p);
         cursor: pointer;
         transition: var(--tran-05);
     }
@@ -698,7 +710,7 @@ select.input-wrapper {
     }
 
     .cardHeader h2 {
-        font-size: 20px;
+        font-size: var(--large-title);
     }
 
     main {

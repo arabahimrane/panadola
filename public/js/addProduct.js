@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+window.addEventListener('DOMContentLoaded', function () {
     // Select the <body> element
     var body = document.querySelector('body');
     var variationInput = document.getElementById('createVariation');
@@ -57,17 +57,62 @@ window.addEventListener('load', function () {
 
     //==================drope zone===============
     // Initialize the dropzone
-    Dropzone.autoDiscover = false; // Disable auto-discovery of dropzone elements
+    const myDropzone = new Dropzone("#myDropzone", {
+        url: "/dashboard/uploadProductImg",
+        paramName: "file",
+        maxFiles: 5,
+        autoProcessQueue: false,
+        maxFilesize: 10,
+        acceptedFiles: ".jpg, .png, .gif",
+        addRemoveLinks: true,
+        init: function () {
+            this.on("addedfile", function (file) {
+                file.previewElement.classList.add("dz-upload");
+                const progressElement = file.previewElement.querySelector(".dz-upload");
 
-    var myDropzone = new Dropzone("div#myDropzone", {
-        url: "/dashboard/addProduct", // Replace with your server-side upload URL
-        paramName: "file", // The name of the file parameter to be sent to the server
-        maxFiles: 5, // Maximum number of files allowed
-        maxFilesize: 10, // Maximum file size in MB
-        acceptedFiles: ".jpg, .png, .gif", // Accepted file types
-        addRemoveLinks: true, // Display remove links for uploaded files
-        // Additional configuration options and event handlers can be added here
+                const reader = new FileReader();
+                reader.onload = function () {
+                    const base64String = reader.result.split(",")[1];
+                    progressElement.style.width = 40 + "%";
+
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/dashboard/uploadProductImg", true);
+
+                    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); // Optional header
+                    progressElement.style.width = 80 + "%";
+
+                    xhr.onreadystatechange = function () {
+                        progressElement.style.width = 100 + "%";
+
+                        if (xhr.readyState === 4) {
+                            console.log('xhr statue:', xhr.status);
+                            if (xhr.status === 200) {
+                                file.previewElement.classList.add("dz-complete");
+                                file.previewElement.classList.add("dz-success");
+                            } else {
+                                file.previewElement.classList.add("dz-complete");
+                                file.previewElement.classList.add("dz-error");                            
+
+                                const errorElement = document.createElement("div");
+                                errorElement.className = "dz-error-message";
+                                errorElement.textContent = 'Error serveur';
+                                file.previewElement.appendChild(errorElement);
+                                console.error("Error uploading file:", xhr.statusText);
+                            }
+                        }
+                    };
+                    const dataToSend = {
+                        file: base64String
+                    };
+                    xhr.send(JSON.stringify(dataToSend));
+                };
+                reader.readAsDataURL(file);
+            });
+        },
     });
+
+
     /*===============================variation=============================*/
 
 

@@ -10,6 +10,9 @@ const userSchema = Schema({
     email: { type: String, index: true, required: true, unique: true },
     password: { type: String },
     verifier: { type: Boolean, default: false },
+    bank_name: {type: String},
+    account_number: {type: String},
+
 })
 
 
@@ -23,7 +26,7 @@ userSchema.methods.comparePassword = function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const UsersData = mongoose.model("users", userSchema);
+const UsersData = mongoose.model("User", userSchema);
 
 
 

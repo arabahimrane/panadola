@@ -1,5 +1,6 @@
 main h2 {
     color: var(--text-color);
+    font-size: var(--mediom-title);
 }
 
 .addProduct {
@@ -15,7 +16,6 @@ main h2 {
     flex-direction: column;
     gap: 1rem;
     width: 70%;
-
 }
 
 .principaleInfo .productInfo {
@@ -31,6 +31,11 @@ main h2 {
     padding: 1rem;
     margin: auto;
     border-bottom: 1px solid var(--placeholder-color);
+    
+}
+
+.header h4 + .publishTitle h5 {
+    font-size: var(--smull-title);
 }
 
 .productInfo .body {
@@ -172,7 +177,7 @@ main h2 {
 }
 
 .dropzone .dz-message span {
-    font-size: var(--p);
+    font-size: var(--large-icon);
 }
 
 .dropzone .dz-preview.dz-image-preview {
