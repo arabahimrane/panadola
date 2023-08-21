@@ -1,20 +1,50 @@
 const { getUserStore, getOrders } = require('../database/mongodb/request/dashboard.resquest');
-const { sendToS3 } = require('./aws.controller');
-const  MessageAndStatus  = require('./messageAndStatus.controller');
+const { sendToS3, delletToS3 } = require('./aws.controller');
+const { createProduct, createCategorie } = require('../database/mongodb/request/product.request');
+const MessageAndStatus = require('./messageAndStatus.controller');
 
- 
+
 
 exports.uploadImgProduct = async (req, res) => {
     try {
-
-        const path = await sendToS3(req.body.file, 'image');
-        return res.status(200).json({ path }); 
+        const file = await sendToS3(req.body.file, 'image');
+        return res.status(200).json({ file });
     } catch (err) {
         console.log(err);
         return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
     }
 }
 
+exports.delletImgProduct = async (req, res) => {
+    try {
+        console.log(req.body.path);
+        const dellet = await delletToS3(req.body.path);
+        return res.status(200).json({ dellet });
+    } catch (err) {
+        return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
+    }
+}
+
+exports.createProduct = async (req, res) => {
+    try {
+        createProduct(req);
+
+    } catch (err) {
+        return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
+    }
+}
+
+exports.createCategorie = async (req, res) => {
+    try {
+        await createCategorie(req).then(() => {
+            res.redirect('createcategorie');
+        })
+    } catch (err) {
+        console.log("err: ", err.toString());
+        res.redirect('createcategorie?message=' + MessageAndStatus.CATEGORY_AL_REDY_EXIST.message);
+
+    }
+}
 exports.getStore = async (req, res, next) => {
 
     try {

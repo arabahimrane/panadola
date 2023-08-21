@@ -5,9 +5,7 @@ const Orders = require('../../model/order.model');
 
 exports.createStore = async (userId) => {
     try {
-
         const owner = await UsersData.findOne({ _id: userId });
-        console.error('owner =>>> ', owner.firstName);
         const newStore = new StoreData({
             owner_firstname: owner.firstName,
             owner_lastname: owner.lastName,
@@ -15,6 +13,14 @@ exports.createStore = async (userId) => {
             owner_id: owner._id
         });
         return await newStore.save();
+    } catch (error) {
+        throw error;
+    }
+}
+
+exports.getStoreInformation = async (userId) => {
+    try {
+        return await StoreData.findOne({ owner_id: userId });
     } catch (error) {
         throw error;
     }

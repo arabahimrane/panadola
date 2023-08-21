@@ -132,12 +132,27 @@ main {
 }
 
 .sidebar li {
+    display: flex;
+    
     height: 50px;
     list-style: none;
     display: flex;
     align-items: center;
     margin-top: 10px;
 }
+
+/* .sidebar li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+} */
+
 
 .sidebar header .image,
 .sidebar .icon {
@@ -299,8 +314,8 @@ body.dark .sidebar li a:hover .text {
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
-    overflow-x: hidden;
-    overflow: hidden;
+    /* overflow-x: hidden; */
+    /* overflow: hidden; */
 }
 
 .menu-bar::-webkit-scrollbar {

@@ -11,6 +11,7 @@ class MessageAndStatus {
     static ERROR_SERVER = { statusCode: this.statusErrorServer, message: 'The server has encountered a situation that it does not know how to handle.' };
     static ACCESS_DENIED = { statusCode: this.statusUnauthorized, message: 'Access denied' };
     static EMPTYFIELDS = { statusCode: this.statusUnauthorized, message: 'Fill in all the fields' }
-    static SESSION_STATUES = { statusCode: this.statusUnauthorized, message: 'Session ended'}
+    static SESSION_STATUES = { statusCode: this.statusUnauthorized, message: 'Session ended' }
+    static CATEGORY_AL_REDY_EXIST = { statusCode: this.statusUnauthorized, message: 'Category already used' };
 }
 module.exports = MessageAndStatus;

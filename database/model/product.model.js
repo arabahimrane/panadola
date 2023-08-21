@@ -1,20 +1,46 @@
 const mongoose = require('mongoose');
 
 const productsSchema = new mongoose.Schema({
-    store_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Stores', required: true },
-    statue: { type: String, enum: ['draft', 'publish'] },
-    title: { type: String, required: true },
-    description: { type: String },
-    visibility: { type: String, enum: ['public', 'hidden'] },
-    category_id: { type: mongoose.Schema.Types.ObjectId, ref: 'SubCategories' },
-    gallery: [{ type: String }],
-    stock: { type: Number },
-    price: { type: Number, required: true },
-    discount: { type: Number },
-    variation: [{ variation_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Variation' }, price: { type: Number } }],
-    meta_title: { type: String },
-    meta_description: { type: String },
-    tags: { type: [String] },
+    information: {
+        productTitle: { type: String, required: true },
+        slutg: { type: String },
+        description: { type: String },
+        category: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Category' // Le nom du modèle auquel faire référence
+        },
+    },
+
+    gallery: [
+        { type: String },
+    ],
+
+    generaleInformation: {
+        stock: { type: Number, default: '100' },
+        price: { type: Number },
+        discount: { type: Number },
+    },
+
+    variation: {
+        type: [mongoose.Schema.Types.Mixed],
+    },
+
+    publish: {
+        status: { type: String, enum: ['draft', 'publish'] },
+        visibility: { type: String, enum: ['public', 'hidden'] },
+    },
+
+    publishSchedule: {
+        date: {
+            type: Date,
+            default: Date.now,
+        },
+    },
+
+    meta: {
+        metaTitle: { type: String },
+        metaDescription: { type: String },
+    },
 });
 
 const Products = mongoose.model('Products', productsSchema);

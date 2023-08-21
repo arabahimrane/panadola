@@ -6,6 +6,9 @@ const s3Client = new S3Client({
     secretAccessKey: 'q0GXLiMf1Nz+J2CTNYEmSU+wQ33FwcYzTNf7uaNn',
   },
   region: 'us-west-2',
+  defaultBucket:'panadola',
+
 });
+
 
 module.exports = s3Client;

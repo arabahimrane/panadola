@@ -10,6 +10,14 @@
                     <label for="productTitle">Product title</label>
                     <input class='productTitle' name="productTitle" type="text" placeholder="Product title">
                 </div>
+                <div class="input_container">
+                    <h5>Slug</h5>
+                    <div class="slug">
+                        <label for="slug"><%= data.host %>product/</label>
+                        <input id="slugInput" class='productTitle ' name="slug" type="text" placeholder="Slug">
+                    </div>
+                </div>
+
 
                 <div class="editorContainer">
                     <label for="editor">Product description</label>
@@ -19,9 +27,9 @@
                 <div class="status">
                     <label for="categorie">Categorie</label>
                     <select class="input-wrapper" name="categorie">
-                        <option value="publish">Sport</option>
+                        <option value="Sport">Sport</option>
                     </select>
-                    <a href="/dashboard/createcategorie" target="_blank" class="button">Add new</a>
+                    <a href="/dashboard/createCategorie" target="_blank" class="button">Add new</a>
 
                 </div>
 
@@ -44,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="productInfo" >
+        <div class="productInfo">
             <div class="header">
                 <h4>General Information</h4>
             </div>
@@ -70,10 +78,10 @@
                 <h4>Variation</h4>
             </div>
             <div class="body">
-                <div class="variation" >
+                <div class="variation">
                     <div class="input_container">
                         <label for="createVariation">New variation (Colors, Size, type, ...)</label>
-                        <input type="text"  id="createVariation" name="createVariation" class="variableInput">
+                        <input type="text" id="createVariation" name="createVariation" class="variableInput">
                     </div>
                 </div>
                 <div class="newVariation" id="newVariation"></div>
@@ -83,6 +91,7 @@
                 <button class="btn btn-outline-primary" id="generateVariation">Generate</button>
             </div>
         </div>
+
     </div>
     <div class="productPublie">
         <div class="publish">
@@ -128,13 +137,17 @@
             </div>
             <div class="input_container status">
                 <label for="datePicker">Meta title</label>
-                <input class="input-wrapper" type="text"  placeholder="Insert meta title">
+                <input class="input-wrapper" type="text" name="metaTitle" placeholder="Insert meta title">
             </div>
             <div class="input_container status">
                 <label for="datePicker">Meta description</label>
-                <input class="input-wrapper" type="text" placeholder="Insert meta description">
+                <input class="input-wrapper" name="metDescription" type="text" placeholder="Insert meta description">
             </div>
         </div>
 
     </div>
+    <div class="submit">
+        <button class="btn btn-outline-primary  mt-3 col-4" id="submit">Submit</button>
+    </div>
+
 </div>

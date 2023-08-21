@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { testSession, singup, signin, logout, getpassword } = require('../controller/auth.controller');
-const { uploadImgProduct, getStore } = require('../controller/dashboard.controller');
+const { uploadImgProduct, delletImgProduct, createProduct, createCategorie, getStore } = require('../controller/dashboard.controller');
+
+
 router.get('/', testSession, getStore, (req, res) => {
 
 
@@ -163,8 +165,26 @@ router.get('/addProduct', testSession, (req, res) => {
         scriptBody: '../layaout/script', linkBody: '../layaout/link',
         script: '../layaout/script/addProduct.script.ejs', link: '../layaout/link/addProduct.link.ejs',
         components: 'components/addProduct',
+
         data: {
-            host: 'https://mysnack.com/products/',
+            host: 'https://mysnack.com/',
+            device: 'usd'
+        },
+
+    });
+});
+
+router.get('/createCategorie', testSession, (req, res) => {
+  
+
+    res.render('dashboard/body', {
+        title: 'Add categorie', sidebar: 'layaout/sidebar',
+        errorMessage: req.query.message,
+        scriptBody: '../layaout/script', linkBody: '../layaout/link',
+        script: '../layaout/script/addCategorie.script.ejs', link: '../layaout/link/addProduct.link.ejs',
+        components: 'components/addCategorie',
+        data: {
+            host: 'https://mysnack.com/',
             device: 'usd'
         },
 
@@ -181,7 +201,7 @@ router.get('/signin', (req, res) => {
     res.status(errorMessage ? 401 : 200).render('login/login', { title: 'Dashboard | login', script: '../layaout/script', formPath: 'signinForm', errorMessage: errorMessage });
 })
 
-router.get('/logout', (req, res) => logout(res))
+router.get('/logout', (req, res) => logout(req, res))
 
 router.get('/getpassword', (req, res) => {
     res.render('login/login', { title: 'Dashboard | forgot password', script: '../layaout/script', formPath: 'getpasswordForm' });
@@ -194,6 +214,10 @@ router.post('/signin', signin);
 router.post('/getpassword', getpassword);
 
 router.post('/uploadProductImg', testSession, uploadImgProduct);
+router.delete('/uploadProductImg', testSession, delletImgProduct);
+
+router.post('/creatProduct', testSession, createProduct);
+router.post('/createCategorie', testSession, createCategorie);
 
 
 

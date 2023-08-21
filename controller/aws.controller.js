@@ -1,5 +1,5 @@
 const s3Client = require("../config/aws.config");
-const { PutObjectCommand } = require("@aws-sdk/client-s3");
+const { PutObjectCommand, DeleteObjectCommand } = require("@aws-sdk/client-s3");
 
 exports.sendToS3 = async (file, path) => {
     const productImgBase64 = file.replace(/^data:image\/(png|jpeg|jpg);base64,/, "");
@@ -9,16 +9,29 @@ exports.sendToS3 = async (file, path) => {
     try {
         const objectKey = `${path}/${Date.now()}.png`;
         const command = new PutObjectCommand({
-            Bucket: 'panadola',
+            Bucket: s3Client.config.defaultBucket,
             Key: objectKey,
             Body: productImgBuffer,
             ContentEncoding: 'base64', // Add this line
             ContentType: 'image/png',
         });
         await s3Client.send(command);
-        const imageUrl = `https://panadola.s3-us-west-2.amazonaws.com/${objectKey}`;
-        return imageUrl;
+        
+        return objectKey;
     } catch (err) {
         throw err;
     }
 };
+
+exports.delletToS3 = async (file) => {
+    console.log("delletToS3: file =", file);
+    try {
+        const command = new DeleteObjectCommand({
+            Bucket: s3Client.config.defaultBucket,
+            Key: file,
+        });
+        return await s3Client.send(command);
+    } catch (err) {
+        throw err;
+    }
+}
