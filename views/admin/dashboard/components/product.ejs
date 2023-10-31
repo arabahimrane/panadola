@@ -1,0 +1,21 @@
+<div class="orderBox">
+    <h2>Menu</h2>
+    <div class="searchBar">
+        <div class="input-wrapper">
+            <span class="material-symbols-outlined icon">
+                search
+            </span>
+            <input id='searchOrders' type="text" placeholder="Search for products">
+        </div>
+        <label for="filterSarche">Category: </label>
+        <select class="input-wrapper" name="filterSarche" id="filterSarche" placeholder="categories">
+            <option value="*">All</option>
+            <option value="closed">Closed</option>
+            <option value="pending">Pending</option>
+            <option value="processed">Processed</option>
+        </select>
+    </div>
+    <div class="orderlist">
+        <%- include(menuList) %>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Titre</th>
+            <th>category</th>
+            <th>Prix</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% menu.forEach(function(menu) { %>
+        <tr class="selectionable">
+            <td><img src="https://panadola.s3.us-west-2.amazonaws.com/<%= menu.gallery[0] %>" alt="Image"></td>
+            <td><%= menu.information.productTitle %></td>
+            <td><%= menu.information.category_id.categorieName %></td>
+            <td><%= menu.generaleInformation.price %></td>
+            <td class="action"><a href="addProduct/<%= menu._id %>"> <span class="material-symbols-outlined">
+                        edit_square
+                    </span></a>
+                <a href="dellet/<%= menu._id %>">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </a>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+    <tfoot></tfoot>
+</table>

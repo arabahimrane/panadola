@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
 const productsSchema = new mongoose.Schema({
+    store_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Store', required: true },
     information: {
         productTitle: { type: String, required: true },
-        slutg: { type: String },
+        slug: { type: String },
         description: { type: String },
-        category: {
+        category_id: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Category' // Le nom du modèle auquel faire référence
+            ref: 'Category'
         },
     },
 
@@ -16,7 +17,6 @@ const productsSchema = new mongoose.Schema({
     ],
 
     generaleInformation: {
-        stock: { type: Number, default: '100' },
         price: { type: Number },
         discount: { type: Number },
     },

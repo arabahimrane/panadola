@@ -4,7 +4,8 @@ const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const routes = require('./routes/routes');
+const adimnRoutes = require('./routes/admin.routes');
+const storeRoutes = require('./routes/store.routes');
 const bodyParser = require('body-parser'); // Import body-parser
 
 app.use(cookieParser());
@@ -31,8 +32,8 @@ app.use((req, res, next) => {
         next();
     }
 });
-app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' })); // Use body-parser for URL-encoded data
-app.use(bodyParser.json({ limit: '10mb' })); // Use body-parser for JSON data
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); // Use body-parser for URL-encoded data
+app.use(bodyParser.json({ limit: '50mb' })); // Use body-parser for JSON data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set('view engine', 'ejs');
@@ -40,6 +41,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
 
-app.use('/', routes);
+app.use((req, res, next) => {
+    if (req.hostname === '127.0.0.1') {
+        adimnRoutes(req, res, next); // Utilisez les routes d'admin
+    } else {
+        
+        storeRoutes(req, res, next);
+    }
+});
 
 module.exports = app;

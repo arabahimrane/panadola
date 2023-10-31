@@ -1,0 +1,403 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #ffffff;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: black;
+    --input-text-color: black;
+    --avtive-text-colot: #F6F5FF;
+    --white: #ffffff;
+    --cardHover-color: #0098fd;
+    --chip-color: #0098fd;
+    --chip-hover: #42b0fa;
+    --placeholder-color: #707070;
+    /*====== icon size ========== */
+
+    --smull-icon: 1.8rem;
+    --mediom-icon: 2.3rem;
+    --large-icon: 2.8rem;
+
+    /*======= Font size ===========*/
+
+    --smull-p: 0.8rem;
+    --mediom-p: 1rem;
+    --large-p: 1.8rem;
+
+    /* ======= title Font size ======= */
+    --smull-title: 1rem;
+    --mediom-title: 1.5rem;
+    --large-title: 2rem;
+    /*======= Radius======*/
+    --radius: 0.3rem;
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --input-text-color: #ffffffff;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    --placeholder-color: #707070;
+}
+
+/*----------------chip---------------*/
+.chip {
+    margin: 0.3rem;
+    padding: 0.5rem;
+    border-radius: 8rem;
+    background-color: var(--chip-color);
+    height: 2rem;
+    text-align: center;
+    align-items: center;
+    /* Centrer verticalement */
+    justify-content: center;
+    /* Centrer horizontalement */
+    cursor: pointer;
+}
+
+/* Pour ajouter un style lorsqu'un chip est survolé */
+.chip:hover {
+    background-color: var(--chip-hover);
+}
+
+/* Pour ajouter un style lorsqu'un chip est actif (clic) */
+.chip.active {
+    background-color: #555;
+    color: white;
+}
+
+/*======main ========*/
+main {
+    transition: margin-left .5s;
+    padding: 2rem 1rem 2rem 5rem;
+}
+
+
+
+/* ============ dark body =================== */
+body.dark .text {
+    color: var(--toggle-color)
+}
+
+body.dark .cardBox .card {
+    background-color: var(--primary-color);
+}
+
+body.dark .cardBox .card:hover {
+    background-color: var(--cardHover-color);
+    color: var(--white);
+    transition: var(--tran-05);
+}
+
+/* ====================button============================= */
+
+a {
+    color: var(--cardHover-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--text-color);
+}
+
+/* ====================card============================= */
+.cardBox {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    min-width: 200px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: auto;
+    color: var(--text-color);
+}
+
+.cardBox .card .cardName {
+    color: var(--text-color);
+    font-size: var(--mediom-title);
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+    font-size: var(--mediom-icon);
+    color: var(--text-color);
+}
+
+.cardBox .card:hover {
+    background: var(--cardHover-color);
+    color: var(--body-color);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: var(--white);
+}
+
+/*==================orderlistAndCahart===============================*/
+.orderlist {
+    margin: auto;
+    margin-top: 2rem;
+    height: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderlist h2 {
+    font-size: var(--mediom-title);
+    color: var(--text-color);
+}
+
+/*==========================tableaux order===========================*/
+.orderlist table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orderlist table thead tr th,
+.orderlist table tbody td {
+    padding: 10px;
+    text-align: left;
+    font-size: var(--smull-p);
+}
+
+.orderlist table thead tr th {
+    font-size: var(--smull-p);
+    background-color: var(--white);
+    color: black;
+}
+
+.orderlist table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+
+}
+
+.orderlist table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.orderlist table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.orderlist table tbody {
+    background-color: var(--sidebar-color);
+}
+
+.orderlist table tbody tr {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--primary-color-light);
+}
+
+.orderlist table tbody tr:hover {
+    background-color: var(--cardHover-color);
+    cursor: pointer;
+    color: var(--white);
+}
+
+.orderlist table tbody tr:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: none;
+}
+
+body.dark .orderlist table tbody tr:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: var(--white);
+}
+
+body.dark .orderlist table tbody tr:hover a {
+    color: var(--white);
+    text-decoration: none;
+    /* Pour retirer le soulignement par défaut des liens */
+}
+
+body.dark .orderlist table tbody tr td.action a {
+    margin: 0.5rem;
+}
+
+ 
+
+body.dark .orderlist table thead tr th {
+    background-color: #3a3b3c;
+    color: var(--white);
+    font-size: var(--mediom-p);
+}
+
+/*=======================Generale===================================*/
+button {
+    width: 10rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border: 1px solid var(--cardHover-color);
+    border-radius: var(--radius);
+    color: var(--text-color);
+    font-size: var(--smull-p);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--cardHover-color);
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+
+.input_container input {
+    outline: none;
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: var(--radius);
+    position: relative;
+    padding-left: 1%;
+    border: 1px solid var(--placeholder-color);
+    background-color: var(--body-color);
+    color: var(--input-text-color);
+}
+
+.input_container input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.input_container input:focus {
+    outline: none;
+    border: 1px solid var(--cardHover-color);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--body-color);
+    border: 0.5px solid var(--placeholder-color);
+    color: var(--placeholder-color);
+    width: 20rem;
+    height: 2.5rem;
+    margin: auto;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--body-color);
+    border: 0.5px solid var(--placeholder-color);
+    color: var(--placeholder-color);
+    width: 20rem;
+    height: 2.5rem;
+    margin: auto;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+select.input-wrapper {
+    padding: 0.5rem;
+    margin: auto 1rem auto 1rem;
+}
+
+.input-wrapper input {
+    padding-left: 0.1rem;
+    height: 100%;
+    width: 90%;
+    border-radius: var(--radius);
+    color: var(--input-text-color);
+    border: none;
+    margin: auto;
+    background-color: transparent;
+}
+
+.input-wrapper input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.input-wrapper input:focus,
+.input-wrapper span:focus {
+    border: none;
+    outline: none;
+}
+
+.input-wrapper span {
+    justify-content: center;
+    align-content: center;
+    border-radius: var(--radius);
+    margin: auto;
+}
+
+/* ====================== Responsive Design ========================== */
+
+
+@media (max-width: 992px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader h2 {
+        font-size: var(--large-title);
+    }
+
+    main {
+        width: 100%;
+        padding: 0;
+        padding-top: 13%;
+        padding-bottom: 8rem;
+    }
+
+}

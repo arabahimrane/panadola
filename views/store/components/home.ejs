@@ -1,0 +1,91 @@
+<main>
+    <section class="description" style=" background: url(<%=components_data.description.backgroundImg%>)">
+        <div class="description_filter">
+            <div class="description_content">
+                <h1><%= components_data.description.title %></h1>
+                <p><%= components_data.description.paragraph %></p>
+                <a href="./where.html" class="btn btn-primary">DECOUVRIR</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="dowloand_app">
+        <div class="description">
+            <h2><%= components_data.dowloand_app.title %></h2>
+            <p><%= components_data.dowloand_app.description %></p>
+            <div class="description_btn">
+                <a href="<%= components_data.dowloand_app.appStoreUrl %>" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-apple"></i>
+                    <p> App Store</p>
+                </a>
+                <a href="<%= components_data.dowloand_app.playStoreUrl %>" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-android"></i>
+                    <p>Google Play</p>
+                </a>
+            </div>
+        </div>
+        <div class="stickers">
+            <img src="./store/img/tracking.png" alt="<%= components_data.dowloand_app.title %>">
+        </div>
+
+
+    </section>
+
+    <section class="actualites">
+        <div class="actualites_header">
+            <h2>Actualités</h2>
+        </div>
+        <div class="actualites_body">
+            <% components_data.actualites.forEach(function(item) { %>
+            <a href="#" class="card_actualites" style="background-image: url('<%= item.img %>');">
+                <div class="container">
+                    <h2><%= item.title %></h2>
+                    <p><%= item.description %></p>
+                </div>
+            </a>
+            <% }); %>
+        </div>
+        </div>
+    </section>
+</main>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        const header = document.getElementById('navbar');
+
+        const scrollPosition = window.scrollY;
+
+        // Définissez une valeur de seuil pour changer le fond
+        const scrollThreshold = 100; // Par exemple, 100 pixels
+
+        // Vérifiez si la position de défilement est supérieure au seuil
+
+        if (scrollPosition > scrollThreshold) {
+            // Si le défilement dépasse le seuil, changez le fond en noir
+            header.style.background = "<%= theme.navBar.color %>";
+        } else {
+            // Sinon, conservez le fond transparent
+            header.style.background = 'transparent';
+        }
+
+        window.screen.width <= 1080 ?
+            header.style.background = "<%= theme.navBar.color %>" : null;
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+
+            // Définissez une valeur de seuil pour changer le fond
+            const scrollThreshold = 100; // Par exemple, 100 pixels
+
+            // Vérifiez si la position de défilement est supérieure au seuil
+            if (scrollPosition > scrollThreshold) {
+                // Si le défilement dépasse le seuil, changez le fond en noir
+                header.style.background = "<%= theme.navBar.color %>";
+            } else {
+                // Sinon, conservez le fond transparent
+                header.style.background = 'transparent';
+            }
+
+        });
+    });
+</script>

@@ -1,0 +1,43 @@
+<style>
+    header {
+        background-color: <%=theme.navBar.color %> !important
+    }
+
+    footer {
+        display: none;
+    }
+</style>
+
+<main>
+    <div class="sidebar">
+        <div class="cart">
+            <div class="shopping_cart">
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                </span>
+            </div>
+            <div class="price">
+                <h3>panier</h3>
+                <section>
+                    <p id="prix">0 </p>
+                    <p class="devis"><%= data.devis %></p>
+                </section>
+            </div>
+        </div>
+        <div class="commande">
+            <p>commande</p>
+            <ul id="orderList">
+
+            </ul>
+        </div>
+        <button id="submit" class="btn" >Payer</button>
+    </div>
+    <div class="product_details" style="display: none;">
+
+    </div>
+    <div class="body">
+
+        <%- include(page) %>
+
+    </div>
+</main>

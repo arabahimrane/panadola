@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Slug</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% categorie.forEach(function(categorie) { %>
+        <tr class="selectionable">
+            <td><img src="https://panadola.s3.us-west-2.amazonaws.com/<%= categorie.categoriePicture  %>" alt="Image">
+            </td>
+            <td><%= categorie.categorieName %></td>
+            <td><%= categorie.slug %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+    <tfoot></tfoot>
+</table>

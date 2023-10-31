@@ -1,0 +1,25 @@
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Titre</th>
+            <th>Quantité</th>
+            <th>Date</th>
+            <th>Prix Payé</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% orders.forEach(function(order) { %>
+        <tr class="selectionable">
+            <td><img src="https://panadola.s3.us-west-2.amazonaws.com/<%= order.product.gallery[0] %>" alt="Image"></td>
+            <td><%= order.product.information.productTitle %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.date %></td>
+            <td><%= order.price %></td>
+            <td><%= order.status %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+    <tfoot></tfoot>
+</table>

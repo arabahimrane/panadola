@@ -1,6 +1,6 @@
 const { getUserStore, getOrders } = require('../database/mongodb/request/dashboard.resquest');
 const { sendToS3, delletToS3 } = require('./aws.controller');
-const { createProduct, createCategorie } = require('../database/mongodb/request/product.request');
+const { createProduct, getProduct, createCategorie, getCategorie, getOrder, OrderFilterByDays } = require('../database/mongodb/request/product.request');
 const MessageAndStatus = require('./messageAndStatus.controller');
 
 
@@ -27,9 +27,20 @@ exports.delletImgProduct = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
     try {
-        createProduct(req);
-
+        await createProduct(req).then(() =>
+            res.status(MessageAndStatus.OK.statusCode).send(MessageAndStatus.OK.message)
+        );
     } catch (err) {
+        console.log(err);
+        return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
+    }
+}
+
+exports.getProduct = async (req, res) => {
+    try {
+        return await getProduct(req);
+    } catch (err) {
+        // console.log(err);
         return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
     }
 }
@@ -45,28 +56,34 @@ exports.createCategorie = async (req, res) => {
 
     }
 }
-exports.getStore = async (req, res, next) => {
 
+exports.getCategorie = async (req, res) => {
     try {
-        await getUserStore(req.session.userId).then(async (store) => {
-            next();
-            // const orders = await getOrders(store._id);
-            // res.render('dashboard/body', {
-            //     title: 'Dashboard', sidebar: 'layaout/sidebar',
-            //     scriptBody: '../layaout/script', linkBody: '../layaout/link',
-            //     components: 'components/dashboard', cardi: '../layaout/card',
-            //     orderList: '../layaout/orderList',
-            //     data: {
-            //         orders: { name: 'Orders', value: '0' },
-            //         shipping: { name: 'Shipping', value: '0' },
-            //         confirmSales: { name: 'confirm sales', value: '0' },
-            //         refund: { name: 'Refund', value: '0' },
-            //         earning: { name: 'Earning', value: '0' },
-            //         visits: { name: 'Visits', value: '0' },
-            //         customers: { name: 'Customers', value: '0' }
-            //     },
-            // });
-        });
+        return await getCategorie(req);
     } catch (error) {
+        return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
+    }
+}
+
+exports.getOrder = async (req, res) => {
+    try {
+        return await getOrder(req);
+    } catch (error) {
+        console.log('error', error);
+        return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
+    }
+
+}
+
+exports.dataAnalytique = async (req, res) => {
+    try {
+        const data = await OrderFilterByDays(req);
+        console.log('data: ', data);
+        res.status(200).json(data);
+        return data;
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send(MessageAndStatus.ERROR_SERVER.message);
     }
 }

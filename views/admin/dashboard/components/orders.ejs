@@ -1,0 +1,27 @@
+<div class="orderBox">
+    <h2>Orders</h2>
+    <div class="searchBar">
+        <div class="input-wrapper">
+            <span class="material-symbols-outlined icon">
+                search
+            </span>
+            <input id='searchOrders' type="text" placeholder="Search for orders">
+        </div>
+        <div class="input-wrapper">
+            <span class="material-symbols-outlined icon">
+                search
+            </span>
+            <input id='searchProducts' type="text" placeholder="Search for  products">
+        </div>
+
+        <select class="input-wrapper" name="filterSarche" id="filterSarche">
+            <option value="*">All</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="delivered">Delivered</option>
+        </select>
+    </div>
+    <div class="orderlist">
+        <%- include(orderList) %>
+    </div>
+</div>

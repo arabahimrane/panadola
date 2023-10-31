@@ -1,0 +1,59 @@
+<div class="information" id="adresseForm">
+    <div class="title">
+        <span class="material-symbols-outlined">
+            location_on
+        </span>
+        <div>
+            <h3>Ajouter une nouvelle adresse</h3>
+            <p>Veuillez entrer une nouvelle adresse qui sera sauvegardé pour les prochaines fois</p>
+        </div>
+    </div>
+    <div class="inputLabel">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name">
+    </div>
+    <div class="inputLabel">
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" placeholder="Telephone" required>
+    </div>
+    <div class="inputLabel">
+        <label for="adresse">Adresse</label>
+        <input id="adresse" type="text" name="adresse" placeholder="adresse" required>
+    </div>
+    <button id="next" class="btn">next</button>
+</div>
+
+<div class="information" id="paiment" style="display: none;">
+    <div class="title">
+        <span class="material-symbols-outlined">
+            attach_money
+        </span>
+        <div>
+            <h3>Paiement</h3>
+            <p>Choisissez votre méthode de paiement</p>
+        </div>
+    </div>
+    <div class="groupIcon">
+        <div class=" active iconAndText">
+            <span class="material-symbols-outlined">
+                payments
+            </span>
+            <h3>Espéce</h3>
+        </div>
+        <div class="iconAndText">
+            <span class="material-symbols-outlined">
+                credit_card
+            </span>
+            <h3>en ligne</h3>
+        </div>
+    </div>
+    <button id="send" class="btn">next</button>
+
+</div>
+
+<div class="information" id="delivery-man" style="display: none;">
+    <img src="../store/img/delivery.png" alt="">
+    <h3>Thank you</h3>
+    <p>Your order will be sent.</p>
+
+</div>
