@@ -1,0 +1,76 @@
+.comparChart {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.comparChart .chart {
+    margin-top: 2rem;
+}
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    padding: 1.3rem;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.137);
+    border-radius: var(--radius);
+    width: 20rem;
+}
+
+.chart {
+    background-color: var(--primary-color);
+}
+
+.chart h2 {
+    color: var(--text-color);
+    font-size: var(--mediom-title);
+}
+
+.comparChart .chart .doughnut {
+    height: 10rem;
+    width: 10rem;
+}
+
+.chartAnalytics {
+    margin: auto;
+    margin-top: 3rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chartAnalytics .chart {
+    width: 100%;
+}
+
+.chartAnalytics *:not(:first-child) {
+    margin-top: 3rem;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 991px) {
+    .comparChart .chart {
+        margin-bottom: 3rem;
+    }
+
+    .comparChart .chart h2 {
+        font-size: var(--mediom-title);
+        /* Adjust font size for smaller screens */
+    }
+
+    .chartAnalytics {
+        width: 95%;
+        height: 40rem;
+    }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+    .comparChart .chart h2 {
+        font-size: var(--mediom-title);
+        /* Adjust font size for even smaller screens */
+    }
+}

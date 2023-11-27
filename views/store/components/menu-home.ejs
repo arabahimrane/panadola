@@ -1,0 +1,41 @@
+<div class="topBar">
+
+</div>
+ 
+<% data.products.forEach(function(item){%>
+<div class="category">
+    <h3><%= item.category.name %></h3>
+    <div class="grid">
+        <% item.category.product.forEach(function(item){%>
+        <div id="<%= item.id %>" class="card">
+            <div class="card-header">
+                <img src="<%= item.img %>">
+            </div>
+            <div class="card-body">
+                <h3><%= item.name %></h3>
+                <p><%= item.category %></p>
+                <p class="productDescription"><%= item.description %></p>
+                <div class="price">
+                    <section>
+                        <h3><%= item.price %> </h3>
+                        <h3 class="devis"> <%= data.devis %></h3>
+                    </section>
+                    <div class="action_button">
+
+                        <span class="material-symbols-outlined shopping_cart link">
+                            link
+                        </span>
+
+                        <span data-info="<%= item.id %>" class="material-symbols-outlined shopping_cart addCart">
+                            shopping_cart
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <%});%>
+    </div>
+</div>
+<%});%>

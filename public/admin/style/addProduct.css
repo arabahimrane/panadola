@@ -1,0 +1,322 @@
+main h2 {
+    color: var(--text-color);
+    font-size: var(--mediom-title);
+}
+
+.addProduct {
+    color: var(--text-color);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.addProduct .principaleInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 70%;
+}
+
+.principaleInfo .productInfo {
+    border-radius: var(--radius);
+    background-color: var(--primary-color);
+    border: 1px solid var(--placeholder-color);
+    width: 100%;
+}
+
+.productInfo .header {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1;
+    width: 100%;
+    height: 3rem;
+    padding: 1rem;
+    margin: auto;
+    border-bottom: 1px solid var(--placeholder-color);
+
+}
+
+.header h4+.publishTitle h5 {
+    font-size: var(--smull-title);
+}
+
+.productInfo .body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.body .input_container .slug {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.body .input_container .slug #slugInput {
+    margin-left: 2%;
+    width: 40%;
+}
+
+.body .input_container {
+    width: 100%;
+}
+
+.body .input_container .productTitle {
+    width: 90%;
+}
+
+
+
+
+
+.body .editorContainer {
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.editorContainer .ql-toolbar {
+    background-color: var(--body-color);
+}
+
+.editorContainer #editor {
+    background-color: var(--body-color);
+}
+
+.editorContainer .ql-toolbar .ql-picker-label,
+.editorContainer .ql-toolbar .ql-formats,
+.editorContainer .ql-toolbar button svg {
+    color: var(--text-color);
+}
+
+.addProduct .productPublie {
+    width: 25%;
+    height: 50%;
+    margin-top: 2%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.body .status {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    width: 100%;
+}
+
+.body .status .input-wrapper {
+    width: 70%;
+    margin: 0;
+}
+
+
+
+/*===================================================*/
+
+.productPublie .publish {
+    border-radius: var(--radius);
+    background-color: var(--primary-color);
+    border: 1px solid var(--placeholder-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.publish .publishTitle {
+    width: 100%;
+    height: 20%;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--placeholder-color);
+}
+
+.publish .publishStatus {
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.status select {
+    width: 99%;
+    margin: auto;
+    color: var(--text-color);
+}
+
+.status select:focus {
+    outline: none;
+    border: 1px solid var(--cardHover-color);
+}
+
+.status h5 {
+    font-size: var(--smull-title);
+}
+
+.status input {
+    width: 95%;
+    margin: auto;
+    padding: 0.5rem;
+}
+
+/*-----------------------drop zone--------------*/
+.body .dropzone {
+    border: 2px dashed #ccc;
+    width: 100%;
+    border-radius: 5px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 30px;
+    font-size: var(--large-title);
+    color: var(--text-color);
+}
+
+.dropzone .dz-message span {
+    font-size: var(--large-icon);
+}
+
+.dropzone .dz-preview.dz-image-preview {
+    background-color: transparent;
+}
+
+/*---------------------geneale Information--------------------------*/
+
+.body .generalInfo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.generalInfo .input_container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.generalInfo .input_container input {
+    width: 100%;
+    padding-left: 2%;
+}
+
+.body .inputVariation {
+    width: 16rem;
+}
+
+.body .variation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+}
+
+.variation .variationContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.body .variation .variationContainer .input_container {
+    width: 45%;
+}
+
+.body .variation .variationContainer .input_container input {
+    width: 100%;
+}
+
+.body .variation .variationContainer .variationList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+    max-width: 45%;
+    max-height: 3rem;
+    overflow-x: auto;
+    gap: 0.5rem;
+    
+}
+
+.body .variationGenerate {
+    border-top: 1px solid var(--placeholder-color);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.body .variationGenerate header {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.variationGenerate .input_container {
+    flex-direction: row;
+}
+
+.variationGenerate .input_container label {
+    margin: auto;
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.variationGenerate .input_container input {
+    width: 5rem;
+}
+
+.productInfo .footer {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.addProduct .submit {
+    display: flex;
+    width: 70%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: flex-end;
+}
+
+.addProduct .categorySubmit {
+    width: 100%;
+}
+
+/*------------------------------------------------------------------*/
+@media (max-width: 992px) {
+    main h2 {
+        margin-left: 3rem;
+    }
+
+    .addProduct {
+        margin: auto;
+        justify-content: start;
+        gap: 2rem;
+    }
+
+    .addProduct .principaleInfo {
+        width: 80%;
+        margin: auto;
+    }
+
+    .addProduct .productPublie {
+        margin: auto;
+        width: 80%;
+    }
+
+    .generalInfo .input_container {
+        width: 100%;
+    }
+
+    .body .inputVariation {
+        width: 45%;
+    }
+}

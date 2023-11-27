@@ -1,0 +1,256 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* description */
+main section.description {
+    height: 100vh;
+    background-size: cover !important;
+    text-align: center;
+}
+
+main section.description .description_filter {
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(1px);
+    background-color: hsla(0, 0%, 20%, 0.315);
+}
+
+main section.description .description_filter .description_content {
+    max-width: 600px;
+    padding: 20px;
+    padding-top: calc(var(--header-height) + 2rem);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: auto;
+}
+
+main section.description .description_filter .description_content h1 {
+    font-size: 2.5rem;
+    position: relative;
+    animation-name: topToBottom;
+    animation-duration: 2s;
+}
+
+main section.description .description_filter .description_content p {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    line-height: 1.9em;
+    position: relative;
+    animation-name: topToBottom;
+    animation-duration: 2s;
+}
+
+main section.description .description_filter .description_content .btn {
+    animation-name: topToBottom;
+    animation-duration: 2s;
+}
+
+/* dowloand_app */
+
+.dowloand_app {
+    background-color: rgb(160, 112, 7);
+    border-radius: var(--mediom-radius);
+    height: fit-content;
+    width: 95%;
+    margin: auto;
+    margin-top: var(--general-margin);
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.dowloand_app .description {
+    padding: var(--general-margin);
+    padding-top: var(--top-margin);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    color: white;
+    width: 50%;
+    text-align: left;
+    z-index: 1;
+}
+
+.dowloand_app .description h2 {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: var(--large-title);
+}
+
+.dowloand_app .description p {
+    font-size: var(--large-p);
+}
+
+.dowloand_app .description .description_btn {
+    margin: var(--top-margin);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.dowloand_app .description .description_btn .btn {
+    font-weight: 900;
+    font-size: var(--mediom-p);
+    /* height: 4rem;
+    width: 15rem; */
+    text-align: center;
+    /* Center horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    gap: 1rem;
+}
+
+.dowloand_app .description .description_btn .btn i {
+    font-size: var(--mediom-icon);
+}
+
+.dowloand_app .stickers {
+    height: 100%;
+    display: flex;
+    width: 50%;
+    z-index: 0;
+}
+
+.dowloand_app .stickers img {
+    height: 20rem;
+    margin: auto;
+    background-size: contain;
+    /* Utilisez "contain" pour adapter l'image sans découpe */
+    background-repeat: no-repeat;
+    /* Empêche la répétition de l'image de fond */
+    background-position: center center;
+    /* Centre l'image de fond */
+    text-align: center;
+    object-fit: cover;
+}
+
+
+
+/*actualites*/
+
+.actualites {
+    margin: auto;
+    margin-top: var(--top-margin);
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.actualites .actualites_header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: var(--mediom-title);
+}
+
+.actualites .actualites_body {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.actualites .actualites_body .card_actualites {
+    cursor: pointer;
+    max-width: 250px;
+    height: 250px;
+    background-color: black;
+    border-radius: var(--mediom-radius);
+    position: relative;
+    /* Assurez-vous que la position est relative */
+    overflow: hidden;
+    /* Cachez tout ce qui dépasse */
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.actualites .actualites_body .card_actualites .container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 1rem;
+    background: var(--hover-card-shadow);
+    height: 50%;
+    color: white;
+    z-index: 2;
+    font-size: var(--smull-title);
+    transition: var(--tran-1);
+}
+
+.actualites .actualites_body .card_actualites p {
+    margin-top: 0.5rem;
+    font-size: var(--mediom-p);
+    transition: var(--tran-1);
+    opacity: 0;
+}
+
+.actualites .actualites_body .card_actualites:hover .container {
+    height: 100%;
+}
+
+.actualites .actualites_body .card_actualites:hover .container p {
+    opacity: 1;
+}
+
+
+
+@media (max-width: 1080px) {
+
+    body main .dowloand_app {
+        display: block;
+    }
+
+    .dowloand_app .description {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .dowloand_app .description .description_btn {
+        margin: auto;
+        margin-top: var(--top-margin);
+    }
+
+
+    .dowloand_app .description_btn a {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .dowloand_app .description_btn a i {
+        font-size: var(--large-icon) !important;
+    }
+
+    .dowloand_app .description_btn a p {
+        display: none;
+    }
+
+    .dowloand_app .stickers {
+        display: none;
+    }
+
+    /*--------------------------------------------------------------*/
+
+    .actualites .actualites_body {
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 100%;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+
+}

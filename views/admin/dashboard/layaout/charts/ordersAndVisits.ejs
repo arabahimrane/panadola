@@ -1,0 +1,36 @@
+<div class="chart">
+    <h2>
+        Conversion rate
+    </h2>
+    <canvas class="doughnut" id="doughnutSalesAndvisits"></canvas>
+</div>
+
+
+<script>
+    const doughnutSalesAndvisits = document.getElementById('doughnutSalesAndvisits');
+
+    new Chart(doughnutSalesAndvisits, {
+        type: 'doughnut',
+        data: {
+            labels: ['<%- data.orders.name %>', '<%- data.visits.name%>'],
+            datasets: [{
+                label: 'sales and Visits',
+                data: ['<%- data.orders.value %>', '<%- data.visits.value %>'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: '<%- data.orders.name %> and <%- data.visits.name %>',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %> | <%= store.name %></title>
+        <%- include(linkBody) %>
+
+        <%- include(links) %>
+
+        <%- include(scriptBody) %>
+        <% if (typeof script !== 'undefined') { %>
+        <%- include(script) %>
+        <% } %>
+
+    </head>
+
+
+    <body>
+        <header id="navbar">
+            <nav>
+                <h1><a href="./index.html"><%= store.name %></a></h1>
+                <ul>
+                    <% theme.navBar.menu.forEach(function(item) { %>
+                    <li><a href="<%= item.url %>" class="<%= item.name == title ? 'activ' : '' %>"><%= item.name %></a>
+                    </li>
+                    <% }); %>
+                </ul>
+
+            </nav>
+        </header>
+        <%- include(components) %>
+        
+            <ul class="bottomNavBar" id="bottomNavBar" style="display: none; background-color: black;">
+                <% theme.navBar.menu.forEach(function(item) { %>
+                <li><a href="<%= item.url %>" class="<%= item.name == title ? 'activ' : '' %>"><span
+                        class="material-symbols-outlined">
+                        <%= item.icon %>
+                        </span></a>
+                </li>
+                <% }); %>
+            </ul>
+       
+        <!-- <ul class="bottomNavBar" style="background-color: black;">
+            <li class="activ"><a href="/" ><span class="material-symbols-outlined">
+                        home
+                    </span></a></li>
+
+            <li><a href="/menu"><span class="material-symbols-outlined">
+                    menu_book
+                </span></a></li>
+
+            <li><a href="/where"><span class="material-symbols-outlined">
+                    home_pin
+                </span></a></li>
+
+            <li><a href="/contact"><span class="material-symbols-outlined">
+                
+            </span></a></li>
+        </ul> -->
+        <footer>
+            <p>copyright &#169; <%= theme.copyright %></p>
+        </footer>
+    </body>
+
+
+</html>

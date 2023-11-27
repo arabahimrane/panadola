@@ -1,0 +1,30 @@
+.orderBox {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+    color: var(--text-color);
+}
+
+.orderBox h2 {
+    padding: 1rem;
+}
+
+.orderBox .searchBar {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.orderBox .searchBar a {
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+
+.orderBox .orderlist {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 0%;
+}
