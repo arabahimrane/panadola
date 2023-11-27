@@ -1,2 +1,2 @@
 # panadola
-project
+project 40%
